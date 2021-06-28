@@ -18,7 +18,7 @@ pipeline {
                 	sh 'docker build -t devops/cicd:latest . '
                     sh 'docker stop $(docker ps -a -q)'
                     sh 'docker rm $(docker ps -a -q)'  
-                    sh 'docker run --name=test -d devops/cicd:latest' 
+                    sh 'docker run --name=test -p 1234:80 -d devops/cicd:latest' 
                 }
             }
         }
